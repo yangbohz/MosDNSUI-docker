@@ -17,4 +17,4 @@ RUN pip install --no-cache-dir flask requests gunicorn
 EXPOSE 5001
 
 # 使用 Gunicorn 启动后端服务
-CMD["gunicorn", "-w", "2", "-b", "0.0.0.0:5001", "app:app"]
+CMD ["gunicorn", "-w", "2", "-b", "0.0.0.0:5001", "app:app"]
