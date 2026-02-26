@@ -12,7 +12,7 @@ app = Flask(__name__)
 # 这是唯一需要您确认的地方！
 # 请确保这里的地址是您 MosDNS 服务的真实管理地址和端口。
 MOSDNS_ADMIN_URL = os.environ.get('MOSDNS_ADMIN_URL', 'http://127.0.0.1:9099')
-MOSDNS_METRICS_URL = f"{MOSDNS_ADMIN_URL}/metrics"
+MOSDNS_METRICS_URL = os.environ.get("MOSDNS_METRICS_URL", "http://localhost:9099/metrics")
 
 def fetch_mosdns_metrics():
     """从 MosDNS /metrics 接口获取原始文本数据"""
