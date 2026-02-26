@@ -13,6 +13,11 @@ ENV TZ=Asia/Shanghai
 # 安装项目运行必需的 Python 库包
 RUN pip install --no-cache-dir flask requests gunicorn
 
+# ================= 新增的修复代码 =================
+# 创建 templates 文件夹，并将 index.html 移动进去
+RUN mkdir -p templates && [ -f index.html ] && mv index.html templates/ || true
+# =================================================
+
 # 暴露 Flask 运行的端口
 EXPOSE 5001
 
