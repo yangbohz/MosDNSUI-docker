@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  mosdns-ui:
+    build: .
+    container_name: mosdns-ui
+    restart: unless-stopped
+    ports:
+      - "5001:5001"
+    # 这里声明环境变量，但在 Portainer 界面里去赋值
+    environment:
+      - TZ=Asia/Shanghai
+      - MOSDNS_METRICS_URL=${MOSDNS_METRICS_URL}
